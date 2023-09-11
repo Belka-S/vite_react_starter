@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { lazy, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import loadWebFonts from 'styles/Fonts';
+// import 'styles/GlobalStyles.scss';
 import './App.scss';
 
-import viteLogo from 'images/vite.svg';
-import reactLogo from 'images/react.svg';
-
-const { BASE_URL } = import.meta.env;
+import SharedLayout from 'components/SharedLayout/SharedLayout';
+import HomePage from 'pages/HomePage';
+const VitePage = lazy(() => import('pages/VitePage'));
+const ReactPage = lazy(() => import('pages/ReactPage'));
 
 function App() {
   useEffect(() => {
@@ -15,24 +16,14 @@ function App() {
   }, []);
 
   return (
-    <>
-      <div>
-        <h1>Vite + React</h1>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-
-      <Outlet />
-      <nav>
-        <NavLink to={BASE_URL}>Home</NavLink>
-        {' | '}
-        <NavLink to={BASE_URL + 'items'}>Items</NavLink>
-      </nav>
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="vite" element={<VitePage />} />
+        <Route path="react" element={<ReactPage />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }
 

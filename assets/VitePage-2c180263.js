@@ -1,0 +1,1 @@
+import{j as e,v as r}from"./index-601ccf0c.js";const s=()=>e.jsxs("div",{children:[e.jsx("h1",{children:"Vite"}),e.jsx("a",{href:"https://vitejs.dev",target:"_blank",rel:"noreferrer",children:e.jsx("img",{src:r,className:"logo",alt:"Vite logo"})})]});export{s as default};

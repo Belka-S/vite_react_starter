@@ -1,0 +1,1 @@
+import{j as e,r}from"./index-601ccf0c.js";const a=()=>e.jsxs("div",{children:[e.jsx("h1",{children:"React"}),e.jsx("a",{href:"https://react.dev",target:"_blank",rel:"noreferrer",children:e.jsx("img",{src:r,className:"logo react",alt:"React logo"})})]});export{a as default};
